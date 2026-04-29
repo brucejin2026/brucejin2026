@@ -1,16 +1,22 @@
-## Hi there 👋
+# Hi, I'm [brucejin2026]! 👋
 
-<!--
-**brucejin2026/brucejin2026** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+[一句话介绍自己，可以写专业方向和兴趣]
 
-Here are some ideas to get you started:
+![Your GitHub stats](https://github-readme-stats.vercel.app/api?username=[brucejin2026]&show_icons=true&theme=default)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🚀 关于我
+
+- 🔭 目前的工作/学习方向
+- 🌱 正在学习的技术
+- 👯 希望合作的项目
+- 💬 可以问我关于...的问题
+- 📫 联系方式
+- ⚡ 有趣的个人特点
+
+## 🛠 技术栈
+
+[列出你掌握的技术]
+
+## 📊 GitHub统计
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=[你的用户名]&layout=compact)
