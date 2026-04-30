@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI对话</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f5f7fa; font-family: sans-serif; }
+    .msg-user { background: #1677ff; color: white; border-radius: 18px 18px 4px 18px; }
+    .msg-ai { background: white; border: 1px solid #eee; border-radius: 18px 18px 18px 4px; }
+  </style>
+</head>
+<body class="h-screen flex overflow-hidden">
+  <aside id="sidebar" class="w-64 bg-white border-r flex flex-col">
+    <div class="p-4 border-b flex items-center justify-between">
+      <div class="flex gap-2 items-center">
+        <div class="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center">AI</div>
+        <span class="font-bold">豆包风格</span>
+      </div>
+      <button id="toggle" class="text-gray-500">〈</button>
+    </div>
+    <nav class="p-3">
+      <a class="flex gap-2 p-2 bg-blue-50 text-blue-600 rounded">💬 对话</a>
+    </nav>
+    <div class="flex-1 p-3 text-sm text-gray-600">历史对话</div>
+  </aside>
+
+  <main class="flex-1 flex flex-col h-full">
+    <div id="chat" class="flex-1 overflow-y-auto p-6 space-y-4"></div>
+    <div class="bg-white border-t p-4">
+      <div class="max-w-3xl mx-auto flex gap-2">
+        <textarea id="input" placeholder="输入消息..." class="flex-1 border rounded-xl p-3 min-h-[50px]"></textarea>
+        <button id="send" class="bg-blue-500 text-white px-5 rounded-xl">发送</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const chat = document.getElementById('chat');
+    const input = document.getElementById('input');
+    const send = document.getElementById('send');
+    const sidebar = document.getElementById('sidebar');
+    const toggle = document.getElementById('toggle');
+
+    toggle.onclick = () => { sidebar.classList.toggle('w-64'); sidebar.classList.toggle('w-16'); };
+
+    function addMsg(text, isUser) {
+      const div = document.createElement('div');
+      div.className = isUser ? 'flex justify-end' : 'flex justify-start';
+      div.innerHTML = `<div class="${isUser ? 'msg-user' : 'msg-ai'} px-4 py-3 max-w-xl">${text}</div>`;
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    addMsg("你好！我是AI助手", false);
+
+    function sendMsg() {
+      const t = input.value.trim();
+      if (!t) return;
+      addMsg(t, true);
+      input.value = '';
+      setTimeout(() => addMsg("已收到：" + t, false), 700);
+    }
+
+    send.onclick = sendMsg;
+    input.onkeydown = e => e.key === 'Enter' && !e.shiftKey && sendMsg();
+  </script>
+</body>
+</html>
